@@ -43,14 +43,8 @@ news_data = news_request.json()
 news_articles = news_data["articles"]
 
 articles_list = news_articles[1:3]
-    ## STEP 3: Use twilio.com/docs/sms/quickstart/python
-    #to send a separate message with each article's title and description to your phone number. 
-
-#TODO 8. - Create a new list of the first 3 article's headline and description using list comprehension.
 
 new_article_list = [f"Headline: {article['headline']} \nBrief:{article['description']}" for article in articles_list]
-
-#TODO 9. - Send each article as a separate message via Twilio. 
 
 proxy_client = TwilioHttpClient()
 proxy_client.session.proxies = {'https': os.environ['https_proxy']}
